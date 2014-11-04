@@ -25,17 +25,21 @@ Install the Adafruit BBIO library (complete guide [here](https://github.com/adaf
   easy_install -U distribute
   sudo pip install Adafruit_BBIO
   ```
-  
+
 Download Sakis3G from [here](https://github.com/RadiusNetworks/sakis3g), extract
 the zip and put the content in `/usr/bin`
 
 Install ppp:  
-  `sudo apt-get install ppp`
+  ```
+  sudo apt-get install ppp
+  ```
 
 Use tinit.py to open the serial connection towards the Telit and check the
 communication. If you connected the Telit to the UART1 pins of the BBB you don't
 have to edit anything. Launch the script with root privileges:  
-  `sudo python tinit.py`
+  ```
+  sudo python tinit.py
+  ```
 
 In tconnect.sh, update the lines  
   ```
@@ -47,7 +51,11 @@ In tconnect.sh, update the lines
   with your APN data.  
   Then, launch the script with root privileges to instaurate the
 connection:  
-  `sudo ./tconnect.sh`
-  
+  ```
+  sudo ./tconnect.sh
+  ```
+
 To close the Point-to-Point connection, launch tdisconnect.sh with root privileges:  
-  `sudo ./tdisconnect.sh`
+  ```
+  sudo ./tdisconnect.sh
+  ```

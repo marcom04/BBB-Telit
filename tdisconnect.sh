@@ -6,5 +6,5 @@
 # Sakis3G script location
 sakis_path="/usr/bin/"
 
-cd sakis_path
+cd $sakis_path
 ./sakis3g --interactive disconnect
