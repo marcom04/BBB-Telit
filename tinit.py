@@ -43,6 +43,7 @@ def ping():
 
 UART.setup(UARTNAME)
 serial_port = serial.Serial(PORTPATH, BAUD, timeout=1, bytesize=8, stopbits=1, parity='N', writeTimeout=1)
+serial_port.close()
 serial_port.open()
 if not serial_port.isOpen():
     print "Failed to open serial port %s on device %s" % (UARTNAME, PORTPATH)
