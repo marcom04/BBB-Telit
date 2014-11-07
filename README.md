@@ -16,8 +16,8 @@ Tested on Debian Wheezy.
 Connect pin **P9\_24 (UART1\_TXD)** of the BBB to the **RX** channel of the Telit.  
 Connect pin **P9\_26 (UART1\_RXD)** of the BBB to the **TX** channel of the Telit.
 
-#### Usage
-Install the Adafruit BBIO library (complete guide [here](https://github.com/adafruit/adafruit-beaglebone-io-python)):
+#### Prerequisites
+Install the Adafruit BBIO Python library (complete guide [here](https://github.com/adafruit/adafruit-beaglebone-io-python)):
   ```
   sudo ntpdate pool.ntp.org
   sudo apt-get update
@@ -26,14 +26,20 @@ Install the Adafruit BBIO library (complete guide [here](https://github.com/adaf
   sudo pip install Adafruit_BBIO
   ```
 
-Download Sakis3G from [here](https://github.com/RadiusNetworks/sakis3g), extract
-the zip and put the content in `/usr/bin`
+Install the pyserial library to use serial ports from the Python script:
+  ```
+  pip install pyserial
+  ```
+
+Download Sakis3G from [here](http://www.sakis3g.org/versions/latest/sakis3g.gz) or [here](http://en.sourceforge.jp/projects/sfnet_vim-n4n0/downloads/sakis3g.tar.gz/) (hope these mirrors stay up!), extract
+the archive and put the content in `/usr/bin`
 
 Install ppp:  
   ```
   sudo apt-get install ppp
   ```
 
+#### Usage
 Use tinit.py to open the serial connection towards the Telit and check the
 communication. If you connected the Telit to the UART1 pins of the BBB you don't
 have to edit anything. Launch the script with root privileges:  
@@ -59,3 +65,15 @@ To close the Point-to-Point connection, launch tdisconnect.sh with root privileg
   ```
   sudo ./tdisconnect.sh
   ```
+
+#### Testing serial communication with minicom
+Installing minicom could be useful to test serial ports:
+  ```
+  sudo apt-get install minicom
+  ```
+
+Presuming you are using UART1 for the GSM module, you can launch
+  ```
+  minicom -b 9600 -D /dev/ttyO1
+  ```
+and then launch the command "AT" (without quotes). If you get the response "OK", your module is good to go.
